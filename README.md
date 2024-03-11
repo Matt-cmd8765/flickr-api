@@ -1,24 +1,6 @@
-# README
+# Flickr API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Credentials
 
-Things you may want to cover:
+The API keys were encrypted using [Credentials](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
