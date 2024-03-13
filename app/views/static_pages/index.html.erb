@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1>INDEX PAGE</h1>
-    <p> 
-        <%= @pics[0].title %>
-    </p>
-    <div>
-        <%= @og %>
-    </div>
+    <% @pics.each do |hi| %>
+      <% server = hi.server %>
+      <% id = hi.id %>
+      <% secret = hi.secret %>
+      <div>
+        <img src="<%= "https://live.staticflickr.com/#{server}/#{id}_#{secret}_w.jpg" %>" alt="#"></img>
+      </div>
+    <% end %>
 </body>
 </html>
