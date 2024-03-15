@@ -7,13 +7,23 @@
 </head>
 <body>
     <h1>INDEX PAGE</h1>
-    <% @pics.each do |hi| %>
-      <% server = hi.server %>
-      <% id = hi.id %>
-      <% secret = hi.secret %>
-      <div>
-        <img src="<%= "https://live.staticflickr.com/#{server}/#{id}_#{secret}_w.jpg" %>" alt="#"></img>
-      </div>
+
+    <%= form_with url: static_pages_path, method: :get do |form| %>
+    <%= form.label :query, 'Flickr ID'%>
+    <%= form.text_field :query %>
+    <%= form.submit 'Search'%>
+    <% end %>
+
+    <% if @search.nil?%>
+    <%else %>
+      <% @search.each do |hi| %>
+        <% server = hi.server %>
+        <% id = hi.id %>
+        <% secret = hi.secret %>
+        <div>
+          <img src="<%= "https://live.staticflickr.com/#{server}/#{id}_#{secret}_w.jpg" %>" alt="#"></img>
+        </div>
+      <% end %>
     <% end %>
 </body>
 </html>
