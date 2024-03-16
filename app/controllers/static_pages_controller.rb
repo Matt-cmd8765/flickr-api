@@ -6,7 +6,12 @@ class StaticPagesController < ApplicationController
     flickr = Flickr.new stripe.values[0], stripe.values[1]
 
     if search_submitted
-      @search = flickr.photos.search :user_id => params[:query].to_s
+      begin
+        @search = flickr.photos.search :user_id => params[:query].to_s
+      rescue Flickr::FailedResponse
+        puts 'ERROR'
+        flash[:alert] = 'ID NOT FOUND'
+      end
     end
   end
 

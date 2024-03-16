@@ -6,7 +6,7 @@
     <title>Flickr DocsPics</title>
 </head>
 <body>
-    <h1>INDEX PAGE</h1>
+    <h1>Search Flickr IDs</h1>
 
     <%= form_with url: static_pages_path, method: :get do |form| %>
     <%= form.label :query, 'Flickr ID'%>
@@ -14,8 +14,16 @@
     <%= form.submit 'Search'%>
     <% end %>
 
-    <% if @search.nil?%>
-    <%else %>
+
+
+    <% if @search.nil? %>
+    <%# if the ID isn't valid%>
+    <% flash.each do |type, msg|%>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <% else %>
       <% @search.each do |hi| %>
         <% server = hi.server %>
         <% id = hi.id %>
@@ -25,5 +33,7 @@
         </div>
       <% end %>
     <% end %>
+
+
 </body>
 </html>
